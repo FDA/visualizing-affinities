@@ -1,0 +1,63 @@
+** NetMHCIIpan visualization scripts ***
+
+This software allows visualization of the potential for the development of antibodies to certain amino acid sequences of a protein in the form of heatmaps and risk populations using your locally installed netMHCIIpan[http://www.cbs.dtu.dk/services/NetMHCIIpan/].  Additionally, by allowing user input, this program also allows for the evaluation of novel protein sequences introduced by the user in the course of protein engineering.  In addition, the software allows the comparison of potential immunogenicity due to the changes made in the protein.  The software is indicative, but not definitive and any developed protein with lower potential for antibody development will need to be tested and reviewed by FDA prior to marketing.
+
+
+Please cite : 
+
+Pandey GS, Yanover C, Howard TE, Sauna ZE (2013) Polymorphisms in theF8 Gene and MHC-II Variants as Risk Factors for the Development of Inhibitory
+Anti-Factor VIII Antibodies during the Treatment of Hemophilia A: A Computational Assessment. PLoS Comput Biol 9(5): e1003066. doi:10.1371/journal.pcbi.1003066
+
+
+
+
+This script will enable the creation of heatmaps and percentages of risk populations
+
+Instructions for Use.
+
+1) Requirements
+	
+	a) Python 2.7 - https://www.python.org/download/releases/2.7/
+	 
+	b) BioPython - http://biopython.org/ (tested on v1.63)
+	
+	c) numPy - http://www.numpy.org (tested on v1.8.2)
+	
+	d) pandas - http://pandas.pydata.org (tested on v0.13.1)
+	
+	e) matplotlib - http://www.matplotlib.org (tested on v1.3.1)
+	
+	f) netMHCIIpan 3.1 - http://www.cbs.dtu.dk/services/NetMHCIIpan/ **scroll to bottom of page**
+	 NOTE - ready to use Linux and MacOSX are freely available for academic users.
+	      - It is assumed that the directory fo netMHCIIpan was added to your PATH and that netmHCIIpan can be 			run as netMHCIIpan from the directory where you are running the program.
+
+	g) This program must be run on a UNIX or UNIX-like machine
+
+2) Getting ready to Run
+	
+	The whole thing can be contained in a folder containing these files.
+
+	a) Affinity_Visualization.py - contains all methods for the class "Affinity_Visualization"
+
+	b) affinity_viz.py - using the parameters.py file and importing the class Affinity_Visualization, this script will
+						 create an instance of Affinity_Visualization and create the heatmaps and promiscuity plots.
+
+	c) parameters.py - contains all the information for this particular run including file locations and titles.
+					   This is the only file that should need to be changed for a standard running of these scripts.
+
+	d) Nworld.csv - This file is not necessary but a file matching the format is and must be referenced in the parameters.py file as allele_csv
+	
+	e) World.txt - This file is not necessary but a file matching the format is and must be referenced in the parameters.py file as HLA_file_path
+    
+		Both of these files were made using numbers from https://bethematch.org
+		Another Option is to parse files from www.allelefrequencies.net
+
+        f) A fasta file for the sequence of interest. This file should be in UTF-8 format. occassional errors have occured with both \r and \n 
+
+3) Running Affinity_visualization
+	
+	Assuming all of those files exist in the same folder, the program can simply be run witht he command 'python affinity_viz.py ./parameters.py'
+
+	The parameters.py file will allow some basic changes and allow for differeing file locations.
+
+4) Questions regarding this script to tranform netMHCIIpan results into graphics should be sent to joseph.mcgill@fda.hhs.gov or zuben.sauna@fda.hhs.gov
